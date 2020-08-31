@@ -1,35 +1,44 @@
-background no
-use_xft yes
-font Dejavu Sans:size=8
-xftalpha 0
-update_interval 2
-total_run_times 0
-own_window yes
-own_window_transparent no
-own_window_type normal
-own_window_argb_visual yes
-own_window_argb_value 25
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-double_buffer yes
-minimum_size 200 200
-maximum_width 250
-draw_shades no
-draw_outline yes
-draw_borders no
-draw_graph_borders no
-default_color grey
-default_shade_color black
-default_outline_color black
-alignment top_right
-gap_x 8
-gap_y 12
-no_buffers yes
-cpu_avg_samples 4
-text_buffer_size 1024
-override_utf8_locale yes
-uppercase no
+-- @joaoeudes7 - 2020
+-- New version converted to script Lua using script Conky:
+-- sudo lua /usr/share/doc/conky-1.11.5_pre/convert.lua ~/.conkyrc ~/.newConkyrc
 
-TEXT
+conky.config = {
+	background = true,
+	own_window = true,
+
+	use_xft = true,
+	font = 'Dejavu Sans:size=8',
+	xftalpha = 0,
+	update_interval = 2,
+	total_run_times = 0,
+
+	own_window_class = 'conky',
+
+	own_window_transparent = true,
+	own_window_argb_visual = true,
+	own_window_argb_value = 25,
+	own_window_type = 'dock',
+	own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+	double_buffer = true,
+	maximum_width = 250,
+	draw_shades = false,
+	draw_outline = true,
+	draw_borders = false,
+	draw_graph_borders = false,
+	default_color = 'grey',
+	default_shade_color = 'black',
+	default_outline_color = 'black',
+	alignment = 'top_right',
+	gap_x = 8,
+	gap_y = 40,
+	no_buffers = true,
+	cpu_avg_samples = 4,
+	text_buffer_size = 1024,
+	override_utf8_locale = true,
+	uppercase = false,
+};
+
+conky.text = [[
 S I S T E M A  ${hr}
 ${offset 10}$alignc${exec whoami} @ $nodename
 ${offset 10}Kernel: ${color green}$sysname $kernel $color
@@ -95,3 +104,4 @@ ${downspeedgraph wlp2s0 100,200 .4 20C20E ffffff -l -t} $color
 #${if_existing /proc/net/route enp3s0}
 #${endif}${endif}
 
+]];
